@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+       xmlns:p="http://primefaces.org/ui"
+       xmlns:ui="http://java.sun.com/jsf/facelets"
+       xmlns:f="http://java.sun.com/jsf/core"
+       
+      xmlns:s="http://jboss.com/products/seam/taglib"
+      xmlns:rich="http://richfaces.org/rich">
+      <h:head></h:head>
+<body>
+<h:form>  
+<p:panel header="Nombre de l'Equipe" toggleable="true" id="panel">  
+        <h:panelGrid columns="3" cellpadding="5">   
+        
+         <h:outputText value="Equipe" />  
+        <p:selectOneListbox id="basic" value="#{affectation.num}" >  
+            <f:selectItem itemLabel="Hassan" itemValue="A" />  
+            <f:selectItem itemLabel="Mohamed" itemValue="B" />  
+            <f:selectItem itemLabel="Jallal" itemValue="C"  />  
+        </p:selectOneListbox>
+             <h:outputText value="" /> 
+             <h:outputText value="Date" />  
+    				<p:calendar value="#{affectation.date}" id="popupCal" required="true"  /> 
+    				<h:commandButton value="Afficher" update="growl"  actionListener="#{affectation.consult}"/> 
+        </h:panelGrid>  
+    </p:panel>
+  
+      <h:commandButton value="Créer" update="growl"  actionListener="#{affectation.Affectation}"/> 
+</h:form>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<ui:composition template="/template/layout.xhtml"
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:p="http://primefaces.org/ui"
+    >
+    	<ui:define name="title">Covoiturage 0.1 | Tableau de board</ui:define>
+    		<ui:define name="content">
+  <div class="main">
+
+        <div class="speedbar">
+         <a href="#">Covoiturage 0.1</a> &#8250; <a href="#">Dashboard</a>
+        </div>
+
+  	   <!--Reports-->
+       
+
+        <!--Reports end-->
+        <!--Alerts-->
+        <div class="grid-1">
+           <div class="title-grid">Alerts</div>
+           <div class="content-gird">
+   <h:form id="form">  
+  
+    <p:growl id="messages" showDetail="true" escape="false"/>  
+  
+    <p:tree value="#{expoBean.root}" var="node"  
+        selectionMode="multiple" selection="#{expoBean.selectedNodes}" id="treeMultiple">  
+  
+        <p:treeNode>  
+            <h:outputText value="#{node}" />  
+        </p:treeNode>  
+    </p:tree>  
+      
+    <p:commandButton value="Display Selected" update="messages"  
+        actionListener="#{expoBean.displaySelectedMultiple}" id="btnDisplay" />  
+      
+</h:form>  
+                  
+           </div>
+        </div>
+		<!--Alerts end-->
+
+ </div><!-- END MAIN-->
+
+   		</ui:define>
+ 
+    	</ui:composition>

@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+       xmlns:p="http://primefaces.org/ui"
+       xmlns:ui="http://java.sun.com/jsf/facelets"
+       xmlns:f="http://java.sun.com/jsf/core"
+       
+      xmlns:s="http://jboss.com/products/seam/taglib"
+      xmlns:rich="http://richfaces.org/rich">
+      <h:head></h:head>
+<body>
+<h:form>  
+ <p:tabView id="tabView">  
+  
+    <p:tab id="tab1" title="Aujourd'hui">  
+        <h:panelGrid columns="4" columnClasses="label, value" styleClass="grid">  
+                    <h:outputText value="Date" />  
+    				<p:calendar value="#{planning.date1}" id="popupCal" required="true"  /> 
+    				 <h:outputText value=" " />
+    				 <h:outputText value=" " />
+                     
+                </h:panelGrid>  
+    </p:tab>  
+  
+    <p:tab id="tab2" title="Demain">  
+     <h:panelGrid columns="4" columnClasses="label, value">  
+                   <h:outputText value="Date" />  
+    				<p:calendar value="#{planification.date2}" id="popupCal1" required="true"  /> 
+    				 <h:outputText value=" " />
+    				 <h:outputText value=" " /> 
+                    
+                </h:panelGrid>
+        
+    </p:tab>  
+  
+    <p:tab id="tab3" title="Lendemain">  
+        <h:panelGrid columns="4" columnClasses="label, value">  
+                 <h:outputText value="Date" />  
+    				<p:calendar value="#{planification.date3}" id="popupCal2" required="true"  /> 
+    				 <h:outputText value=" " />
+    				 <h:outputText value=" " />
+    				
+                </h:panelGrid> 
+                
+    </p:tab>  
+  
+</p:tabView>   
+      <h:commandButton value="Submit" update="growl"  actionListener="#{planning.tablePlanning}"/> 
+</h:form>
+</body>
+</html>

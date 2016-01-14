@@ -1,0 +1,91 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+       xmlns:p="http://primefaces.org/ui"
+       xmlns:ui="http://java.sun.com/jsf/facelets"
+       xmlns:f="http://java.sun.com/jsf/core"
+       
+      xmlns:s="http://jboss.com/products/seam/taglib"
+      xmlns:rich="http://richfaces.org/rich">
+      <h:head></h:head>
+<body>
+<h:form>  
+                  
+    <p:growl id="growl" showDetail="true" sticky="true" />  
+      
+    <p:panel header="Growl">  
+        <h:panelGrid columns="6">  
+             
+             <h3>Calendar</h3>  
+    <p:calendar value="#{L3psBean.date1}" id="popupCal" required="true"  /> 
+    
+    
+    <h3>Calendar</h3>  
+    <p:calendar value="#{L3psBean.date2}" id="popupCal1" /> 
+    
+      <h3>Calendar</h3>  
+    <p:calendar value="#{L3psBean.date3}" id="popupCal2" />   
+          
+            
+            <h3>Min1</h3>  
+            <p:spinner id="minmax1" value="#{L3psBean.debut1}" min="1" />
+            
+            <h3>Min2</h3>   
+            <p:spinner id="minmax2" value="#{L3psBean.debut2}" min="1" />
+            
+            <h3>Min3</h3> 
+            <p:spinner id="minmax" value="#{L3psBean.debut3}" min="1" />
+            
+    		<h3>Max1</h3>  
+            <p:spinner id="finmax1" value="#{L3psBean.fin1}" min="1" />
+            
+   			<h3>Max2</h3>  
+            <p:spinner id="finmax2" value="#{L3psBean.fin2}" min="1" />
+
+    		<h3>Max3</h3>   
+            <p:spinner id="finmax" value="#{L3psBean.fin3}" min="1" />
+            
+            <h3>Min4 D</h3> 
+            <p:spinner id="minmax4" value="#{L3psBean.debut4}" min="1" />
+            
+    		<h3>Max5</h3>  
+            <p:spinner id="finmax4" value="#{L3psBean.debut5}" min="1" />
+            
+   			<h3>Max6</h3>  
+            <p:spinner id="finmax5" value="#{L3psBean.debut6}" min="1" />
+
+    		<h3>Max7 D</h3>   
+            <p:spinner id="finmax6" value="#{L3psBean.fin4}" min="1" />
+            
+            <h3>Max8</h3>  
+            <p:spinner id="finmax7" value="#{L3psBean.fin5}" min="1" />
+
+    		<h3>Max9</h3>   
+            <p:spinner id="finmax8" value="#{L3psBean.fin6}" min="1" />
+            
+             <h3>Min10 G</h3> 
+            <p:spinner id="minmax9" value="#{L3psBean.debut7}" min="1" />
+            
+    		<h3>Max11</h3>  
+            <p:spinner id="finmax10" value="#{L3psBean.debut8}" min="1" />
+            
+   			<h3>Max12</h3>  
+            <p:spinner id="finmax11" value="#{L3psBean.debut9}" min="1" />
+
+    		<h3>Max13 G</h3>   
+            <p:spinner id="finmax12" value="#{L3psBean.fin7}" min="1" />
+            
+            <h3>Max14</h3>  
+            <p:spinner id="finmax13" value="#{L3psBean.fin8}" min="1" />
+
+    		<h3>Max15</h3>   
+            <p:spinner id="finmax14" value="#{L3psBean.fin9}" min="1" />
+          
+          <p:commandButton value="Submit"  id="ajax"  
+             actionListener="#{L3psBean.pieceConsomme}" styleClass="ui-priority-primary"/>
+          </h:panelGrid>
+    </p:panel>  
+      
+</h:form>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+	<h:head></h:head>
+	<h:body>
+	
+	<h:form>  
+  
+  <h:outputText value="Machine: " /> 
+ 
+    <p:multiSelectListbox value="#{executeBean.selection}" effect="slide"> 
+        <f:selectItems value="#{executeBean.categories}" />  
+    </p:multiSelectListbox>  
+    
+   <h:outputText value="Temps d'execution: " />  
+            <p:keyboard value="#{executeBean.count}"  
+                    showMode="button"  keypadOnly="true"/>
+     
+  <br />
+    <p:commandButton value="Calculer" icon="ui-icon-check" update="out" style="margin:10px 0"/>  
+  
+    <h:outputText id="out" value="Value: #{executeBean.count/executeBean.selection}" style="display:block"/>
+    
+     
+  
+</h:form> 
+	 
+	</h:body>
+</html>

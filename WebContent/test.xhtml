@@ -1,0 +1,121 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+       xmlns:p="http://primefaces.org/ui"
+       xmlns:ui="http://java.sun.com/jsf/facelets"
+       xmlns:f="http://java.sun.com/jsf/core"
+       
+      xmlns:s="http://jboss.com/products/seam/taglib"
+      xmlns:rich="http://richfaces.org/rich">
+      <h:head></h:head>
+<body>
+<h:form enctype="multipart/form-data">  
+
+<p:panel header="Fichiers :" toggleable="true" id="panel">  
+        <h:panelGrid columns="3" cellpadding="2">   
+      <h:outputText value="Extraction L3PS   :" /> <p:fileUpload value="#{L3psBean.fileL3ps}"  mode="simple"/> <br /><br />
+<h:outputText value="Extraction PLS   :" /> <p:fileUpload value="#{L3psBean.fileExtraction}" mode="simple"/> <br /><br />
+<h:outputText value="Inventaire QAD   :" /> <p:fileUpload value="#{L3psBean.fileQAD}" mode="simple"/> <br /><br />
+            
+        </h:panelGrid>  
+    </p:panel>
+
+ <p:tabView id="tabView">  
+  
+    <p:tab id="tab1" title="#{L3psBean.dd}">  
+        <h:panelGrid columns="4" columnClasses="label, value" styleClass="grid">  
+                    <h:outputText value="Date" />  
+    				<p:calendar value="#{L3psBean.date1}" id="popupCal" required="true"  /> 
+    				 <h:outputText value=" " />
+    				 <h:outputText value=" " />
+    				 
+    				 <h:outputText value="Début PDB J92" />   
+            		<p:spinner id="minmax1" value="#{L3psBean.debut1}" min="1" />
+            		
+           
+    				<h:outputText value="Fin PDB J92" />   
+            		<p:spinner id="finmax1" value="#{L3psBean.fin1}" min="1" /> 
+            
+            		   <h:outputText value="Début PNO D J92" />
+           				 <p:spinner id="minmax2" value="#{L3psBean.debut4}" min="1" />
+           
+
+    					<h:outputText value="Fin PNO D J92" />   
+            			<p:spinner id="finmax2" value="#{L3psBean.fin4}" min="1" />
+            			
+            			<h:outputText value="Début PNO G J92" />  
+            			<p:spinner id="minmax3" value="#{L3psBean.debut7}" min="1" />
+
+    					<h:outputText value="Fin PNO G J92" />  
+            			<p:spinner id="finmax3" value="#{L3psBean.fin7}" min="1" />
+                     
+                </h:panelGrid>  
+    </p:tab>  
+  
+    <p:tab id="tab2" title="#{L3psBean.dd1}">  
+     <h:panelGrid columns="4" columnClasses="label, value">  
+                   <h:outputText value="Date" />  
+    				<p:calendar value="#{L3psBean.date2}" id="popupCal1" required="true"  /> 
+    				 <h:outputText value=" " />
+    				 <h:outputText value=" " />
+    				 
+    				 <h:outputText value="Début PDB J92" />   
+            		<p:spinner id="minmax4" value="#{L3psBean.debut2}" min="1" />
+           
+    				<h:outputText value="Fin PDB J92" />   
+            		<p:spinner id="finmax4" value="#{L3psBean.fin2}" min="1" /> 
+            
+            		   <h:outputText value="Début PNO D J92" />
+           				 <p:spinner id="minmax5" value="#{L3psBean.debut5}" min="1" />
+           
+
+    					<h:outputText value="Fin PNO D J92" />   
+            			<p:spinner id="finmax5" value="#{L3psBean.fin5}" min="1" />
+            			
+            			<h:outputText value="Début PNO G J92" />  
+            			<p:spinner id="minmax6" value="#{L3psBean.debut8}" min="1" />
+
+    					<h:outputText value="Fin PNO G J92" />  
+            			<p:spinner id="finmax6" value="#{L3psBean.fin8}" min="1" /> 
+                    
+                </h:panelGrid>
+        
+    </p:tab>  
+  
+    <p:tab id="tab3" title="#{L3psBean.dd2}">  
+        <h:panelGrid columns="4" columnClasses="label, value">  
+                 <h:outputText value="Date" />  
+    				<p:calendar value="#{L3psBean.date3}" id="popupCal2" required="true"  /> 
+    				 <h:outputText value=" " />
+    				 <h:outputText value=" " />
+    				 
+    				 <h:outputText value="Début PDB J92" />   
+            		<p:spinner id="minmax7" value="#{L3psBean.debut3}" min="1" />
+           
+    				<h:outputText value="Fin PDB J92" />   
+            		<p:spinner id="finmax7" value="#{L3psBean.fin3}" min="1" /> 
+            
+            		   <h:outputText value="Début PNO D J92" />
+           				 <p:spinner id="minmax8" value="#{L3psBean.debut6}" min="1" />
+           
+
+    					<h:outputText value="Fin PNO D J92" />   
+            			<p:spinner id="finmax8" value="#{L3psBean.fin6}" min="1" />
+            			
+            			<h:outputText value="Début PNO G J92" />  
+            			<p:spinner id="minmax9" value="#{L3psBean.debut9}" min="1" />
+
+    					<h:outputText value="Fin PNO G J92" />  
+            			<p:spinner id="finmax9" value="#{L3psBean.fin9}" min="1" /> 
+                </h:panelGrid> 
+                
+    </p:tab>  
+  
+</p:tabView> <br />  
+  
+
+      <p:commandButton value="Extraction" ajax="false"  
+                actionListener="#{L3psBean.pieceConsomme}"/>  
+</h:form>
+</body>
+</html>

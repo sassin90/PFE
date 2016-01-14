@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+       xmlns:p="http://primefaces.org/ui"
+       xmlns:ui="http://java.sun.com/jsf/facelets"
+       xmlns:f="http://java.sun.com/jsf/core"
+       
+      xmlns:s="http://jboss.com/products/seam/taglib"
+      xmlns:rich="http://richfaces.org/rich">
+      <h:head></h:head>
+<body>
+<h:form enctype="multipart/form-data">  
+
+<p:panel header="Fichiers :" toggleable="true" id="panel">  
+        <h:panelGrid columns="3" cellpadding="2">   
+      <h:outputText value="Extraction L3PS   :" /> <p:fileUpload value="#{L3psBean.fileL3ps}"  mode="simple"/> <br /><br />
+<h:outputText value="Extraction PLS   :" /> <p:fileUpload value="#{L3psBean.fileExtraction}" mode="simple"/> <br /><br />
+<h:outputText value="Inventaire QAD   :" /> <p:fileUpload value="#{L3psBean.fileQAD}" mode="simple"/> <br /><br />
+            
+        </h:panelGrid>  
+    </p:panel>
+
+
+ <p:panel header="Date PLS :" toggleable="true" id="panel1">  
+        <h:panelGrid columns="3" cellpadding="2">   
+        
+        <p:calendar value="#{L3psBean.date1}" id="popupCal" required="true"  />
+    	 <p:calendar value="#{L3psBean.date2}" id="popupCal1" required="true"  />
+          <p:calendar value="#{L3psBean.date3}" id="popupCal2" required="true"  />  
+        </h:panelGrid> 
+         
+    </p:panel>
+    
+    <p:panel header="L3PS :" toggleable="true" id="panel2">  
+        <h:panelGrid columns="2" cellpadding="2">   
+         <h:outputText value="Début PDB J92" />   
+            		<p:spinner id="minmax1" value="#{L3psBean.debut1}" min="1" />
+            		
+            		   <h:outputText value="Début PNO D J92" />
+           				 <p:spinner id="minmax2" value="#{L3psBean.debut4}" min="1" />
+           
+            			
+            			<h:outputText value="Début PNO G J92" />  
+            			<p:spinner id="minmax3" value="#{L3psBean.debut7}" min="1" />
+
+        </h:panelGrid> 
+         
+    </p:panel>
+  
+
+      <p:commandButton value="Extraction" ajax="false"  
+                actionListener="#{L3psBean.pieceConsommeplus}"/>  
+</h:form>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html 
+xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:p="http://primefaces.org/ui"
+       
+      >
+      <h:head></h:head>
+    <body>
+ 
+   <h:form id="form1">
+  <p:barChart id="barChart" value="#{chartBean.categoryModel}" legendPosition="ne"  
+            title="Interactive Bar Chart" style="height:300px;width:600px"  widgetVar="chartWgt" >  
+        <p:ajax event="itemSelect" listener="#{chartBean.itemSelect}"  />  
+    </p:barChart>
+ 
+ <p:commandButton type="button" value="Export" icon="ui-icon-extlink" onclick="exportChart()"/>
+
+  <p:dialog widgetVar="dlg" showEffect="fade" modal="true" header="Chart as an Image">
+    <p:outputPanel id="output" layout="block" style="width:600px;height:300px"/>
+  </p:dialog> 
+ </h:form>
+<script type="text/javascript">
+  function exportChart() 
+  {
+    $(PrimeFaces.escapeClientId('form1:output')).empty().append(chartWgt.exportAsImage());
+    dlg.show();
+  }
+</script>
+         
+          
+                    
+</body>
+</html>

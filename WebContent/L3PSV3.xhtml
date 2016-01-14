@@ -1,0 +1,232 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+       xmlns:p="http://primefaces.org/ui"
+       xmlns:ui="http://java.sun.com/jsf/facelets"
+       xmlns:f="http://java.sun.com/jsf/core"
+       
+      xmlns:s="http://jboss.com/products/seam/taglib"
+      xmlns:rich="http://richfaces.org/rich">
+      <h:head></h:head>
+<body>
+<h:form>  
+   <p:growl id="growl" sticky="true" showDetail="true"/>  
+  
+    <p:wizard flowListener="#{L3psBean.onFlowProcess}">  
+      
+        <p:tab id="personal" title="Aujourd'hui">  
+  
+            <p:panel header="Information">  
+              
+                <h:messages errorClass="error"/>  
+                  
+                <h:panelGrid columns="4" columnClasses="label, value" styleClass="grid">  
+                    <h:outputText value="Date" />  
+    				<p:calendar value="#{L3psBean.date1}" id="popupCal" required="true"  /> 
+    				 <h:outputText value=" " />
+    				 <h:outputText value=" " />
+    				 
+    				 <h:outputText value="Min" />   
+            		<p:spinner id="minmax1" value="#{L3psBean.debut1}" min="1" />
+            		
+           
+    				<h:outputText value="Max" />   
+            		<p:spinner id="finmax1" value="#{L3psBean.fin1}" min="1" /> 
+            
+            		   <h:outputText value="Min D" />
+           				 <p:spinner id="minmax2" value="#{L3psBean.debut4}" min="1" />
+           
+
+    					<h:outputText value="Max D" />   
+            			<p:spinner id="finmax2" value="#{L3psBean.fin4}" min="1" />
+            			
+            			<h:outputText value="Min G" />  
+            			<p:spinner id="minmax3" value="#{L3psBean.debut7}" min="1" />
+
+    					<h:outputText value="Max G" />  
+            			<p:spinner id="finmax3" value="#{L3psBean.fin7}" min="1" />
+                      
+                    <h:outputText value="Skip to last: " />  
+                    <h:selectBooleanCheckbox value="#{L3psBean.skip}" />  
+                </h:panelGrid>  
+            </p:panel>  
+        </p:tab>  
+              
+        <p:tab id="address" title="Demain">  
+            <p:panel header="Information">  
+              
+                <h:messages errorClass="error"/>  
+                  
+                <h:panelGrid columns="4" columnClasses="label, value">  
+                   <h:outputText value="Date" />  
+    				<p:calendar value="#{L3psBean.date1}" id="popupCal1" required="true"  /> 
+    				 <h:outputText value=" " />
+    				 <h:outputText value=" " />
+    				 
+    				 <h:outputText value="Min" />   
+            		<p:spinner id="minmax4" value="#{L3psBean.debut2}" min="1" />
+           
+    				<h:outputText value="Max" />   
+            		<p:spinner id="finmax4" value="#{L3psBean.fin2}" min="1" /> 
+            
+            		   <h:outputText value="Min D" />
+           				 <p:spinner id="minmax5" value="#{L3psBean.debut5}" min="1" />
+           
+
+    					<h:outputText value="Max D" />   
+            			<p:spinner id="finmax5" value="#{L3psBean.fin5}" min="1" />
+            			
+            			<h:outputText value="Min G" />  
+            			<p:spinner id="minmax6" value="#{L3psBean.debut8}" min="1" />
+
+    					<h:outputText value="Max G" />  
+            			<p:spinner id="finmax6" value="#{L3psBean.fin8}" min="1" /> 
+                      
+                    <h:outputText value="Skip to last: " />  
+                    <h:selectBooleanCheckbox value="#{L3psBean.skip}" />  
+                </h:panelGrid>  
+            </p:panel>  
+        </p:tab>  
+              
+        <p:tab id="contact" title="Lendemain">  
+            <p:panel header="Information">  
+                  
+                <h:messages errorClass="error"/>  
+              
+                <h:panelGrid columns="4" columnClasses="label, value">  
+                 <h:outputText value="Date" />  
+    				<p:calendar value="#{L3psBean.date1}" id="popupCal2" required="true"  /> 
+    				 <h:outputText value=" " />
+    				 <h:outputText value=" " />
+    				 
+    				 <h:outputText value="Min" />   
+            		<p:spinner id="minmax7" value="#{L3psBean.debut3}" min="1" />
+           
+    				<h:outputText value="Max" />   
+            		<p:spinner id="finmax7" value="#{L3psBean.fin3}" min="1" /> 
+            
+            		   <h:outputText value="Min D" />
+           				 <p:spinner id="minmax8" value="#{L3psBean.debut6}" min="1" />
+           
+
+    					<h:outputText value="Max D" />   
+            			<p:spinner id="finmax8" value="#{L3psBean.fin6}" min="1" />
+            			
+            			<h:outputText value="Min G" />  
+            			<p:spinner id="minmax9" value="#{L3psBean.debut9}" min="1" />
+
+    					<h:outputText value="Max G" />  
+            			<p:spinner id="finmax9" value="#{L3psBean.fin9}" min="1" /> 
+                </h:panelGrid>  
+            </p:panel>  
+        </p:tab>  
+              
+        <p:tab id="confirm" title="Confirmation">  
+            <p:panel header="Confirmation">  
+              
+                <h:panelGrid id="confirmation" columns="14">  
+                    <h:outputText value="Date 1: " />  
+                    <h:outputText styleClass="outputLabel"  
+                                value="#{L3psBean.date1}" >  
+                     <f:convertDateTime pattern="d/M/yyyy"/> </h:outputText>
+                      
+                    <h:outputText value="min: " />  
+                    <h:outputText  styleClass="outputLabel"  
+                                value="#{L3psBean.debut1}"/>  
+                     
+                      
+                    <h:outputText value="Max: " />  
+                    <h:outputText styleClass="outputLabel"  
+                                value="#{L3psBean.fin1}" />  
+                      
+                    <h:outputText value="Min D: " />  
+                    <h:outputText styleClass="outputLabel"  
+                                value="#{L3psBean.debut4}" />  
+                      
+                    <h:outputText value="Max D: " />  
+                    <h:outputText styleClass="outputLabel"  
+                                value="#{L3psBean.fin4}" />  
+                      
+                    <h:outputText value="Min G: " />  
+                    <h:outputText styleClass="outputLabel"  
+                                value="#{L3psBean.debut7}" />  
+                      
+                    <h:outputText value="Max G: " />  
+                    <h:outputText styleClass="outputLabel"  
+                                value="#{L3psBean.fin7}" />  
+                              
+                                 <h:outputText value="Date 2: " />  
+                    <h:outputText styleClass="outputLabel"  
+                                value="#{L3psBean.date2}" > 
+                       <f:convertDateTime pattern="d/M/yyyy"/> </h:outputText>
+                      
+                    <h:outputText value="min: " />  
+                    <h:outputText  styleClass="outputLabel"  
+                                value="#{L3psBean.debut2}"/>  
+                      
+                    <h:outputText value="Max: " />  
+                    <h:outputText styleClass="outputLabel"  
+                                value="#{L3psBean.fin2}" />  
+                      
+                    <h:outputText value="Min D: " />  
+                    <h:outputText styleClass="outputLabel"  
+                                value="#{L3psBean.debut5}" />  
+                      
+                    <h:outputText value="Max D: " />  
+                    <h:outputText styleClass="outputLabel"  
+                                value="#{L3psBean.fin5}" />  
+                      
+                    <h:outputText value="Min G: " />  
+                    <h:outputText styleClass="outputLabel"  
+                                value="#{L3psBean.debut8}" />  
+                      
+                    <h:outputText value="Max G: " />  
+                    <h:outputText styleClass="outputLabel"  
+                                value="#{L3psBean.fin8}" /> 
+                                
+ 					<h:outputText value="Date 3: " />  
+                    <h:outputText styleClass="outputLabel"  
+                                value="#{L3psBean.date3}"   >
+                     <f:convertDateTime pattern="d/M/yyyy"/> </h:outputText>
+                      
+                    <h:outputText value="min: " />  
+                    <h:outputText  styleClass="outputLabel"  
+                                value="#{L3psBean.debut3}"/>  
+                      
+                    <h:outputText value="Max: " />  
+                    <h:outputText styleClass="outputLabel"  
+                                value="#{L3psBean.fin3}" />>  
+                      
+                    <h:outputText value="Min D: " />  
+                    <h:outputText styleClass="outputLabel"  
+                                value="#{L3psBean.debut6}" />  
+                      
+                    <h:outputText value="Max D: " />  
+                    <h:outputText styleClass="outputLabel"  
+                                value="#{L3psBean.fin6}" />  
+                      
+                    <h:outputText value="Min G: " />  
+                    <h:outputText styleClass="outputLabel"  
+                                value="#{L3psBean.debut9}" />  
+                      
+                    <h:outputText value="Max G: " />  
+                    <h:outputText styleClass="outputLabel"  
+                                value="#{L3psBean.fin9}" />    
+                      
+                   
+                      
+                    <h:outputText />  
+                    <h:outputText />  
+                </h:panelGrid>  
+                  
+                <p:commandButton value="Submit" update="growl"   
+                            actionListener="#{L3psBean.pieceConsomme}"/>  
+              
+            </p:panel>  
+        </p:tab>  
+          
+    </p:wizard>   
+      
+</h:form>
+</body>
+</html>

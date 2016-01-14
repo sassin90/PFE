@@ -1,0 +1,69 @@
+<ui:composition template="/template/layout.xhtml"
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html">
+    	<ui:define name="title">Gestion de planification</ui:define>
+    		<ui:define name="content">
+    		     
+                 <section class="nav nav-page">
+        <div class="container">
+            <div class="row">
+                <div class="span7">
+                    <header class="page-header">
+                         <h3>Etat du Stock<br/>
+                            <small>Système de gestion de planification </small>
+                        </h3>  
+                    </header>
+                </div>
+                <div class="page-nav-options">
+                    <div class="span9">
+                       
+                        <ul class="nav nav-tabs">
+                            
+                            <li class="active"><a href="#">Planification</a></li>
+                            <li><a href="#">Maintenance</a></li>
+                            <li><a href="#">Production</a></li>
+                            <li><a href="#">Methode</a></li>
+                            
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+                   <div class="container">
+
+                    <div >
+                
+            <div class="span8">
+                <div class="box">
+                    <div class="box-header">
+                        <i class="icon-bookmark"></i>
+                        <h5>Raccourcis</h5>
+                    </div>
+                    <div class="box-content">
+                        <div class="btn-group-box">
+            				<button class="btn" onclick="window.location.href = 'Extraction.xhtml'"><i class="icon-dashboard icon-large" ></i><br/>Extraction</button>
+              				<button class="btn" onclick="window.location.href = 'ExtracDetail.xhtml'"><i class="icon-dashboard icon-large"></i><br/>Extraction(detail)</button>
+                            <button class="btn"><i class="icon-calendar icon-large"></i><br/>Planification</button>
+                            <button class="btn" onclick="window.location.href = 'Paceboard.xhtml'"><i class="icon-list-alt icon-large"></i><br/>Pace board</button>
+                            <button class="btn"><i class="icon-bar-chart icon-large"></i><br/>Statistic</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+         
+  		<div id="t_overview" class="tabcontent clearfix" style="display: block;">
+                	<iframe src="test.xhtml" height="550" width="1100" align="center"  frameborder="0" scrolling="no">
+ 		 <p>Your browser does not support iframes.</p>
+					</iframe>
+	            </div>
+	              </div>
+                    
+                    
+                </div>
+
+   		</ui:define>
+ 
+    	</ui:composition>

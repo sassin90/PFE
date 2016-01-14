@@ -1,0 +1,77 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+       xmlns:p="http://primefaces.org/ui"
+       xmlns:ui="http://java.sun.com/jsf/facelets"
+       xmlns:f="http://java.sun.com/jsf/core"
+       
+      xmlns:s="http://jboss.com/products/seam/taglib"
+      xmlns:rich="http://richfaces.org/rich">
+       <h:head> 
+       
+       </h:head>
+	<body>
+	
+	<p:dialog modal="true" widgetVar="statusDialog" header="Status" draggable="false" closable="false" resizable="false">  
+    <p:graphicImage value="/design/ajaxloadingbar.gif" />  
+</p:dialog>
+  <h:form id="form">
+                <p:dataTable id="files" var="file" value="#{testBean.files}">
+
+
+                    <p:column headerText="Nom" style="width:10%">
+                        <h:outputText value="#{file.nom}" />
+                    </p:column>
+
+                    <p:column headerText="Dossier" style="width:10%">
+                        <h:outputText value="#{file.folder}" />
+                    </p:column>
+
+                    <p:column headerText="Date" style="width:10%">
+                        <h:outputText value="#{file.date}" />
+                    </p:column>
+
+                    <p:column style="width:1%">
+                        <p:commandButton id="selectButton" update=":form:display" 
+                            oncomplete="fileDialog.show()" icon="ui-icon-comment" title="View">
+                            <f:setPropertyActionListener value="#{file}"
+                                target="#{testBean.selectedFile}" />
+                        </p:commandButton>
+                   </p:column>
+
+                </p:dataTable>
+                <p:dialog header="File Detail" widgetVar="fileDialog" resizable="false"
+                    id="fileDlg" showEffect="fade" hideEffect="explode" modal="true">
+
+                    <h:panelGrid id="display" columns="2" cellpadding="4"
+                        style="margin:0 auto;">
+
+                        <h:outputText value="Nom:" />
+                        <h:outputText value="#{testBean.selectedFile.nom}"
+                            style="font-weight:bold" />
+                            
+           <p:commandLink id="ajax"  actionListener="#{testBean.showw}" style="margin-right:20px;">  
+        <h:outputText value="Ouvrir" />  
+    </p:commandLink>
+    
+     <p:commandLink id="downloadLink" ajax="false" actionListener="#{testBean.prepDownload}" style="margin-right:20px;">  
+        <h:outputText value="Telecharger" /> 
+        <p:fileDownload value="#{testBean.download}" /> 
+    </p:commandLink>
+
+                    </h:panelGrid>
+
+                </p:dialog>
+
+            </h:form> 
+     <script type="text/javascript">  
+function start() {  
+    PF('statusDialog').show();  
+}  
+  
+function stop() {  
+    PF('statusDialog').hide();  
+}  
+        </script> 
+	</body>
+</html>

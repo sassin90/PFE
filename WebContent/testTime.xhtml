@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+       xmlns:p="http://primefaces.org/ui"
+       xmlns:ui="http://java.sun.com/jsf/facelets"
+       xmlns:f="http://java.sun.com/jsf/core"
+       
+      xmlns:s="http://jboss.com/products/seam/taglib"
+      xmlns:rich="http://richfaces.org/rich">
+       <h:head> 
+       
+       </h:head>
+	<body>
+	<h:form id="form"> 
+	
+	
+	<h:outputLabel for="minmax" value="Min: " />  
+            <p:spinner id="minmax" value="#{executeBean.machine}" min="0" max="9999"/>
+            
+    <h:outputLabel for="finmax" value="Max: " />  
+            <p:spinner id="finmax" value="#{executeBean.piece}" min="0" max="9999"/>
+            
+            <h:commandButton name="go"  styleClass="button-a blue" value="LOG IN" id="loginBtn" ajax="true">
+                      <f:ajax execute="@form" listener="#{executeBean.calcul}" render="errorLogin" />
+                 </h:commandButton>
+	
+  
+</h:form> 
+	</body>
+</html>

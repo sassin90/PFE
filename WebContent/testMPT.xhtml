@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+       xmlns:p="http://primefaces.org/ui"
+       xmlns:ui="http://java.sun.com/jsf/facelets"
+       xmlns:f="http://java.sun.com/jsf/core"
+       
+      xmlns:s="http://jboss.com/products/seam/taglib"
+      xmlns:rich="http://richfaces.org/rich">
+
+	<h:head></h:head>
+	<body>
+	<h:form id="form">  
+  
+    <p:growl id="msgs" showDetail="true"/>  
+                  
+    <p:panel header="Double Combo" style="margin-bottom:10px;">  
+        <h:panelGrid columns="2" cellpadding="5">  
+            <p:selectOneMenu id="city" value="#{PPRBean.machine}">  
+                <f:selectItem itemLabel="Select Machine" itemValue="" />  
+                <f:selectItems value="#{PPRBean.cities}" />  
+                <p:ajax update="suburbs"  
+                        listener="#{PPRBean.handleCityChange}" />  
+            </p:selectOneMenu>  
+  
+            <p:selectOneMenu id="suburbs" value="#{PPRBean.moule}">  
+                <f:selectItem itemLabel="Select Moule" itemValue="" />  
+                <f:selectItems value="#{PPRBean.suburbs}" />  
+            </p:selectOneMenu>  
+            
+           
+        </h:panelGrid>  
+   
+        <p:separator />  
+          <h:outputText value="Heure   " />   
+            			<p:spinner id="heure" value="#{PPRBean.heure}" min="0"  />
+            			<p:separator />
+        <p:commandButton value="Submit" update="msgs" actionListener="#{PPRBean.displayLocation}" id="btnSubmit"/>  
+  
+    </p:panel>  
+  
+</h:form>
+	</body>
+</html>
